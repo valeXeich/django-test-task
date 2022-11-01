@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if request.user.is_superuser %}
+<table class="table table-dark table-borderless text-center table-position">
+    <thead>
+        <tr>
+          <th scope="col">pk</th>
+          <th scope="col">avatar</th>
+          <th scope="col">first Name</th>
+          <th scope="col">last Name</th>
+          <th scope="col">username</th>
+          <th scope="col">date joined</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for user in users %}
+        <tr>
+          <th scope="row">{{ user.pk }}</th>
+          <td><img width="60" src='{{ user.avatar }}'></td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.date_joined }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+  {% else %}
+    <h4 class="text-center mt-5">Only the admin has access to the data</h4>
+  {% endif %}
+
+
+{% endblock content %}
