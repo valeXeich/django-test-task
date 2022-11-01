@@ -1,5 +1,6 @@
 # Test task
 
+
 How to launch
 
 1. Migrations
@@ -18,6 +19,12 @@ How to launch
 
    ```bash
     $ python manage.py loaddata db_data.json
+    ```
+
+4. Unit tests
+
+   ```bash
+    $ python manage.py test
     ```
 
 5. Run server
